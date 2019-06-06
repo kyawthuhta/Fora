@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fora</title>
+    <title>kyawthuhta's Fora</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- %link{ rel: "stylesheet", href: "", type: "text/css" } -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+    <!--   %link{ rel: "stylesheet", href: "" } -->
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+    <header class="main_header clearfix">    
+      <div id="logo">
+        <p>kyawthuhta's fora</p>
+      </div>
+      <div id="buttons">
+        <%= link_to "New Post", new_post_path %>
+      </div>
+    </header>
+    <div class="wrapper">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+    
+    <div class="wrapper"><%= yield %></div>
+    
   </body>
 </html>
