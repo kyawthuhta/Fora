@@ -19,7 +19,12 @@
         <p><%= link_to "kyawthuhta's Fora", root_path %></p>
       </div>
       <div id="buttons">
-        <%= link_to "New Post", new_post_path %>
+        <% if user_signed_in? %>
+          <%= link_to "New Post", new_post_path %>          
+        <% else %>
+          <%= link_to "Sign Up", new_user_registration_path %>
+          <%= link_to "Sign In", new_user_session_path %>          
+        <% end %>
       </div>
     </header>
     <div class="wrapper">
@@ -31,3 +36,12 @@
     
   </body>
 </html>
+<!-- .wrapper
+      #logo 
+        %p= link_to "David's Rails Forum", root_path
+      #buttons
+        - if user_signed_in?
+          = link_to "New Post", new_post_path
+        - else
+          = link_to "Sign Up", new_user_registration_path
+          = link_to "Sign In", new_user_session_path -->
