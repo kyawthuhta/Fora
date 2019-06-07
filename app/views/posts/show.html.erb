@@ -1,13 +1,25 @@
 <div id="post_content">
 	<h1><%= @post.title %></h1>
 	<p><%= @post.content %></p>
-	<%= link_to 'Edit', edit_post_path(@post) %>
-	<%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>
-	<%= link_to 'Back', root_path %>
+	
 </div>
+<div class="comments">
+	<h2><%= @post.comments.count %></h2>
+	<%= render @post.comments %>
+	<h3>Reply to thread</h3>
+	<%= render "comments/form" %>
+</div>
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= link_to 'Back', root_path %>
 <!-- #post_content 
  %h1= @post.title
  %p= @post.content
 = link_to "Edit", edit_post_path(@post)
  = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this ?" }
  = link_to "Home", root_path -->
+ <!-- #comments
+  %h2= @post.comments.count
+  = render @post.comments
+%h3 Reply to thread
+  = render "comments/form" -->
